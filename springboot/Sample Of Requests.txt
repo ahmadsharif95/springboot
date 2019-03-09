@@ -1,0 +1,85 @@
+1-create Customer to be able to create Customer Account
+
+Url Request :localhost:8080/customer/CreateCustomer
+message Sample Of Request : 
+Body:
+{
+  "currency": "JOR",
+  "fullName": "Ahmad Azzam Alsharif",
+  "mobileNumber":"00962787150144",
+  "civilId":"144",
+  "dateOfBirth":"25-07-1995"
+
+}
+
+Message Sample Of Response
+{
+    "customerNumber": 1,
+    "civilId": "144",
+    "dateOfBirth": "1995-07-25T00:00:00.000+0000",
+    "fullName": "Ahmad Azzam Alsharif",
+    "mobileNumber": "00962787150144",
+    "accounts": []
+}
+
+----------------
+
+2- Crate Account 
+Url: localhost:8080//account/CreateAccount
+Sample Of Request
+{
+  "currency": "JOR",
+  "refCustomerNumber": "1",
+  "accountType":"1"
+}
+
+3-get All Customer Accounts ByCustomerNumber
+
+Sample of request
+http://localhost:8080/account/customerAccountsByCustomerNumber?customerNumber=1
+
+sample of response 
+[{"accountNumber":2,"currency":"JOR","accountType":1,"currentBalance":0.0,"previousBalance":0.0,"refCustomerNumber":null}]
+
+4-get All Customer Accounts By CivilId
+
+sample of request
+http://localhost:8080/account/getAllCustomerAccountsByCivilId?civilId=144
+
+sample of response
+[{"accountNumber":2,"currency":"JOR","accountType":1,"currentBalance":0.0,"previousBalance":0.0,"refCustomerNumber":null}
+,{"accountNumber":3,"currency":"JOR","accountType":1,"currentBalance":0.0,"previousBalance":0.0,"refCustomerNumber":null}]
+
+5-get Customer Account Balance Information
+sample of request
+http://localhost:8080/account/getCustomerBalanceInformation?accountNumber=2
+
+sample of response 
+{"balanceBefore":0.0,"currentBalance":0.0}
+
+6-Edit Account 
+sample of request
+localhost:8080//account/updateAccount
+{
+  "currency": "SYR",
+  "accountType":"100",
+  "accountNumber":"3"
+}
+
+sample of response
+
+{
+    "accountNumber": 3,
+    "currency": "SYR",
+    "accountType": 100,
+    "currentBalance": 0,
+    "previousBalance": 0
+}
+
+
+7-delete account
+sample of request
+http://localhost:8080/account/deleteAccount?accountNumber=2
+
+sample of response
+the account has been deleted and status caode 200
