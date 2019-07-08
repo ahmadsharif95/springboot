@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="urn:ats:mpc:cstmrreg.20.01" elementFormDefault="qualified"
+           targetNamespace="urn:ats:mpc:cstmrreg.20.01" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Document">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="CstmrNameReq">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="GrpHdr">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="MsgId" type="tns:Max35Text"/>
+                                        <xs:element name="CreDtTm" type="xs:dateTime"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="PrtcpntId" type="tns:Max35Text" />
+                            <xs:element name="InstrMblOrSvc" type="tns:Max35Text" minOccurs="0" />
+                            <xs:element name="InstrAlias" type="tns:Max35Text" minOccurs="0"/>
+                            <xs:element name="MblOrSvc" type="tns:Max35Text" minOccurs="0"/>
+                            <xs:element name="Alias" type="tns:Max35Text" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="Max35Text">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="35"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
