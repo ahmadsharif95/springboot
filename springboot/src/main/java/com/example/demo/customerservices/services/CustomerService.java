@@ -7,6 +7,7 @@ import com.example.demo.customerservices.daos.Customer;
 import com.example.demo.customerservices.model.CustomerModel;
 import com.example.demo.customerservices.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Service
